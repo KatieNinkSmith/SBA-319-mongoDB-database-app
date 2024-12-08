@@ -32,6 +32,10 @@ app.use("/api/annuals", annualRouter);
 app.use("/api/perennials", perennialRouter);
 app.use("/api/404", errRouter);
 
+app,
+  get("/", (req, res) => {
+    res.send("Hey hey hey, there like plants and stuff, feels like HOME");
+  });
 // 404 error
 app.use((req, res) => {
   console.log("Error: Oh no my table its broken!");
