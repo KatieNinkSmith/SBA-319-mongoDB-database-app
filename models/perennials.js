@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const perennialsSchema = new mongoose.Shema({
+const perennialsSchema = new mongoose.Schema({
   name: { type: String, required: true },
   purpose: {
     type: String,
@@ -14,11 +14,11 @@ const perennialsSchema = new mongoose.Shema({
     ],
     required: true,
   },
-  size: { type: Number },
+  size: { type: String },
   lightAndWater: { type: String, required: true },
   fertilizer: { type: String },
   notes: { type: String },
-  datePlanted: { type: Date, default: Date.now, required: true },
+  datePlanted: { type: String, default: Date.now, required: true },
 });
 const Perennial = mongoose.model("Perennial", perennialsSchema);
 

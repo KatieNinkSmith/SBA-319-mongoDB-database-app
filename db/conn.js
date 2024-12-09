@@ -10,7 +10,7 @@ const db = mongoose.connection;
 // connect to mongo
 mongoose.connect(mongoURI);
 mongoose.connection.once("open", () => {
-  console.log("connected to mongo");
+  console.log("Come on MAN...GO");
 });
 
 module.exports = db;

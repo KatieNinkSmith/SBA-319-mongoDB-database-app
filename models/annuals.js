@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-const annualsSchema = new mongoose.Shema({
+const annualsSchema = new mongoose.Schema({
   name: { type: String, required: true },
   purpose: {
     type: String,
     enum: ["Fruiting", "Herb", "Flowering", "Pollinating", "Catch crop"],
     required: true,
   },
-  size: { type: Number },
+  size: { type: String },
   selfReseed: { type: Boolean },
   lightAndWater: { type: String, required: true },
   germinationHelp: { type: Boolean },
@@ -15,7 +15,7 @@ const annualsSchema = new mongoose.Shema({
   fertilizer: { type: String },
   saveSeeds: { type: Boolean },
   notes: { type: String },
-  datePlanted: { type: Date, default: Date.now, required: true },
+  datePlanted: { type: String, default: Date.now, required: true },
 });
 const Annuals = mongoose.model("Annuals", annualsSchema);
 
