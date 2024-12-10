@@ -13,6 +13,7 @@ const treeRouter = require("./routes/trees");
 const annualRouter = require("./routes/annuals");
 const perennialRouter = require("./routes/perennials");
 const errRouter = require("./routes/404");
+const Tree = require("./models/trees");
 
 app.set("view engine", "jsx");
 app.set("views", "./views");
@@ -28,13 +29,47 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/trees", treeRouter);
+app.use("/api/trees", treeRouter);
 app.use("/annuals", annualRouter);
 app.use("/perennials", perennialRouter);
 app.use("/404", errRouter);
 
-app.get("/", (req, res) => {
-  res.send("Hey hey hey, there's like plants and stuff, feels like HOME");
+// app.get("/", (req, res) => {
+//   res.send("Hey hey hey, there's like plants and stuff, feels like HOME");
+// });
+
+// app.get("/", (req, res) => {
+//   res.render("DoStuff");
+// });
+// allows you to see the create page
+app.get("/", async (req, res) => {
+  try {
+    const foundTrees = await Tree.find({});
+    res.render("Create", { foundTrees }).status(201);
+  } catch (error) {
+    res.status(400);
+  }
+});
+
+app.patch("/trees/:id/edit", async (req, res) => {
+  try {
+    const updatedTree = await Tree.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.json(updatedTree);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+app.delete("/trees/:id/delete", async (req, res) => {
+  try {
+    const deletedTree = await Tree.findByIdAndDelete(req.params.id);
+    if (!deletedTree) return res.status(404).send("Tree not found");
+    res.json(deletedTree);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 // 404 error
 app.use((req, res) => {

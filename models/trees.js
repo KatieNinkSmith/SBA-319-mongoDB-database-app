@@ -10,10 +10,13 @@ const treeSchema = new mongoose.Schema({
   height: { type: Number },
   diameter: { type: Number },
   ageOfTree: { type: Number },
-  leaves: { type: String, enum: ["Deciduous", "Coniferous"] },
+  leaves: {
+    type: String,
+    enum: ["Deciduous", "Coniferous"],
+  },
   waterRequirements: { type: String },
   fertilizer: { type: String },
-  datePlanted: { type: String, default: Date.now, required: true },
+  datePlanted: { type: Date, default: Date.now, required: true },
 });
 const Tree = mongoose.model("Tree", treeSchema);
 
