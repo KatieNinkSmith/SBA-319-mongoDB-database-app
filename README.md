@@ -1,5 +1,6 @@
 # SBA-319-mongoDB-database-app
 
+you do not need to use postman
 postman DELETE http://localhost:5052/api/trees/:id
 
 You will create a small Node, Express, and MongoDB server application. The topic and content of this application is entirely up to you; be creative!
