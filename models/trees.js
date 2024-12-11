@@ -18,8 +18,6 @@ const treeSchema = new mongoose.Schema({
   fertilizer: { type: String },
   datePlanted: { type: Date, default: Date.now, required: true },
 });
-treeSchema.index({ purpose: 1 });
-treeSchema.index({ leaves: 1 });
 
 const Tree = mongoose.model("Tree", treeSchema);
 

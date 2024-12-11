@@ -34,14 +34,6 @@ app.use("/api/annuals", annualRouter);
 app.use("/api/perennials", perennialRouter);
 app.use("/404", errRouter);
 
-Tree.init();
-// app.get("/", (req, res) => {
-//   res.send("Hey hey hey, there's like plants and stuff, feels like HOME");
-// });
-
-// app.get("/", (req, res) => {
-//   res.render("DoStuff");
-// });
 // allows you to see the create page
 app.get("/", async (req, res) => {
   try {

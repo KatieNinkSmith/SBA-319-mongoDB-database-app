@@ -101,6 +101,16 @@ decided not to use
 // res.status(400).send(err);
 // }
 // });
+Tree.init();
+// app.get("/", (req, res) => {
+// res.send("Hey hey hey, there's like plants and stuff, feels like HOME");
+// });
+
+// app.get("/", (req, res) => {
+// res.render("DoStuff");
+// });
+treeSchema.index({ purpose: 1 });
+treeSchema.index({ leaves: 1 });
 //-------USED TO SEED NOW COMMENTED OUT-----
 
 // Database is seeded
