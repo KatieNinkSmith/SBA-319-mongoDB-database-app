@@ -3,9 +3,21 @@ const React = require("react");
 class Create extends React.Component {
   render() {
     const trees = this.props.foundTrees;
+    // unnecessary for SBA making more work for myself
+    // const handleSubmit = (event) => {
+    //   event.preventDefault();
+    //   const inputValue = event.target.purpose.value;
+    //   const routytooter = "http://localhost:5052/";
+    //   window.location.href = routytooter + inputValue;
+    // };
     return (
       <div>
         <h1>Hey hey hey, there's like plants and stuff, feels like HOME</h1>
+        {/* big hopes and dreams not needed
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="purpose" id="purpose" />
+          <button>Search for Purpose</button>
+        </form> */}
         <ul>
           {trees.map((tree, i) => {
             return (

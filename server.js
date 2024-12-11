@@ -30,10 +30,11 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/trees", treeRouter);
-app.use("/annuals", annualRouter);
-app.use("/perennials", perennialRouter);
+app.use("/api/annuals", annualRouter);
+app.use("/api/perennials", perennialRouter);
 app.use("/404", errRouter);
 
+Tree.init();
 // app.get("/", (req, res) => {
 //   res.send("Hey hey hey, there's like plants and stuff, feels like HOME");
 // });
